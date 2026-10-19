@@ -29,19 +29,29 @@ def _top_k(matrix: np.ndarray, query: np.ndarray, k: int) -> list[int]:
 # -- skip behaviour -----------------------------------------------------------------
 
 
-def test_milvus_unavailable_without_uri():
+def _pretend_installed(monkeypatch, *modules: str) -> None:
+    """Make the optional SDK imports succeed, so these tests behave the same whether
+    or not the milvus/pinecone extras are installed."""
+    for name in modules:
+        monkeypatch.setitem(sys.modules, name, types.ModuleType(name))
+
+
+def test_milvus_unavailable_without_uri(monkeypatch):
+    _pretend_installed(monkeypatch, "pymilvus")
     reason = MilvusStore.unavailable_reason()
     assert reason is not None and "MILVUS_URI" in reason
 
 
 def test_milvus_lite_uri_rejected_on_windows(monkeypatch):
+    _pretend_installed(monkeypatch, "pymilvus")
     monkeypatch.setattr(milvus_backend.sys, "platform", "win32")
     monkeypatch.setenv("MILVUS_URI", "./milvus_demo.db")
     reason = MilvusStore.unavailable_reason()
     assert reason is not None and "Milvus Lite" in reason
 
 
-def test_pinecone_unavailable_without_api_key():
+def test_pinecone_unavailable_without_api_key(monkeypatch):
+    _pretend_installed(monkeypatch, "pinecone")
     reason = PineconeStore.unavailable_reason()
     assert reason is not None and "PINECONE_API_KEY" in reason
 
@@ -57,7 +67,8 @@ def test_missing_sdk_is_reported(monkeypatch):
     assert "not installed" in MilvusStore.unavailable_reason()
 
 
-def test_runner_skips_unconfigured_backends_once(small_dataset):
+def test_runner_skips_unconfigured_backends_once(small_dataset, monkeypatch):
+    _pretend_installed(monkeypatch, "pymilvus", "pinecone")
     configs = [
         IndexConfig("milvus", "hnsw a", {"index": "hnsw"}),
         IndexConfig("milvus", "hnsw b", {"index": "hnsw", "ef_search": 128}),

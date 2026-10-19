@@ -1,4 +1,6 @@
 import csv
+import sys
+import types
 
 import numpy as np
 import pytest
@@ -52,6 +54,8 @@ def test_runner_rejects_k_larger_than_dataset(small_dataset):
 
 def test_cli_vector_end_to_end(tmp_path, monkeypatch, capsys):
     monkeypatch.chdir(tmp_path)
+    # Same skip message whether or not the milvus extra is installed.
+    monkeypatch.setitem(sys.modules, "pymilvus", types.ModuleType("pymilvus"))
     args = ["vector", "--n", "600", "--dim", "16", "--queries", "20", "--k", "5"]
     code = main([*args, "--backends", "faiss,milvus", "--out", "out"])
     assert code == 0
