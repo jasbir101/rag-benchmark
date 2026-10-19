@@ -1,0 +1,74 @@
+{
+  "mode": "rag",
+  "started": "2026-10-19T15:42:51",
+  "finished": "2026-10-19T15:42:52",
+  "metric": "cosine",
+  "settings": {
+    "k": 3,
+    "metric": "cosine",
+    "warmup": 5,
+    "backends": [
+      "faiss",
+      "chroma"
+    ],
+    "indexes": {
+      "faiss": [
+        {
+          "index": "flat"
+        },
+        {
+          "index": "hnsw",
+          "M": 16,
+          "ef_construction": 100,
+          "ef_search": 32
+        }
+      ],
+      "chroma": [
+        {
+          "M": 16,
+          "ef_construction": 100,
+          "ef_search": 32
+        }
+      ]
+    },
+    "output_dir": "docs/results",
+    "chart": true,
+    "n": 20000,
+    "dim": 384,
+    "clusters": 64,
+    "cluster_std": 0.05,
+    "queries": 1000,
+    "seed": 42,
+    "npy": null,
+    "queries_npy": null,
+    "corpus": "data/sample/corpus",
+    "questions": "data/sample/questions.jsonl",
+    "embedder": "hash",
+    "embed_model": null,
+    "embed_dim": null,
+    "chunkers": [
+      "fixed",
+      "recursive"
+    ],
+    "chunk_size": 400,
+    "chunk_overlap": 50,
+    "cache_dir": ".cache/embeddings"
+  },
+  "system": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logical_cpus": 12,
+    "ram_gb": 15.7,
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.14",
+    "packages": {
+      "numpy": "2.5.4",
+      "faiss-cpu": "1.15.1",
+      "chromadb": "1.5.9",
+      "pymilvus": "3.0.2",
+      "pinecone": "10.0.0",
+      "google-genai": "2.31.0"
+    }
+  },
+  "corpus": "data/sample/corpus",
+  "embedder": "hash:384"
+}

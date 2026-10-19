@@ -1,0 +1,24 @@
+# RAG mode on the bundled toy corpus (10 short documents, 30 questions).
+# Run:  rag-bench rag --config configs/rag-sample.yaml
+# Swap the embedder with --embedder local (sentence-transformers) or --embedder gemini.
+
+k: 3
+warmup: 5
+backends: [faiss, chroma]
+output_dir: results
+
+rag:
+  corpus: data/sample/corpus
+  questions: data/sample/questions.jsonl
+  embedder: hash
+  chunkers: [fixed, recursive]
+  chunk_size: 400
+  chunk_overlap: 50
+  cache_dir: .cache/embeddings
+
+indexes:
+  faiss:
+    - {index: flat}
+    - {index: hnsw, M: 16, ef_construction: 100, ef_search: 32}
+  chroma:
+    - {M: 16, ef_construction: 100, ef_search: 32}

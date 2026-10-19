@@ -1,0 +1,123 @@
+{
+  "mode": "vector",
+  "started": "2026-10-19T15:41:36",
+  "finished": "2026-10-19T15:42:50",
+  "metric": "cosine",
+  "settings": {
+    "k": 10,
+    "metric": "cosine",
+    "warmup": 50,
+    "backends": [
+      "faiss",
+      "chroma",
+      "milvus",
+      "pinecone"
+    ],
+    "indexes": {
+      "faiss": [
+        {
+          "index": "flat"
+        },
+        {
+          "index": "hnsw",
+          "M": 32,
+          "ef_construction": 200,
+          "ef_search": [
+            16,
+            32,
+            64,
+            128,
+            256
+          ]
+        },
+        {
+          "index": "ivf_flat",
+          "nlist": 256,
+          "nprobe": [
+            2,
+            4,
+            8,
+            16,
+            32,
+            64
+          ]
+        }
+      ],
+      "chroma": [
+        {
+          "M": 16,
+          "ef_construction": 100,
+          "ef_search": [
+            16,
+            32,
+            64,
+            128,
+            256
+          ]
+        }
+      ],
+      "milvus": [
+        {
+          "index": "hnsw",
+          "M": 32,
+          "ef_construction": 200,
+          "ef_search": [
+            16,
+            64,
+            256
+          ]
+        },
+        {
+          "index": "ivf_flat",
+          "nlist": 256,
+          "nprobe": [
+            4,
+            16,
+            64
+          ]
+        }
+      ],
+      "pinecone": [
+        {}
+      ]
+    },
+    "output_dir": "docs/results",
+    "chart": true,
+    "n": 20000,
+    "dim": 384,
+    "clusters": 64,
+    "cluster_std": 0.05,
+    "queries": 1000,
+    "seed": 42,
+    "npy": null,
+    "queries_npy": null,
+    "corpus": null,
+    "questions": null,
+    "embedder": "hash",
+    "embed_model": null,
+    "embed_dim": null,
+    "chunkers": [
+      "fixed",
+      "recursive"
+    ],
+    "chunk_size": 800,
+    "chunk_overlap": 100,
+    "cache_dir": ".cache/embeddings"
+  },
+  "system": {
+    "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "logical_cpus": 12,
+    "ram_gb": 15.7,
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.13.14",
+    "packages": {
+      "numpy": "2.5.4",
+      "faiss-cpu": "1.15.1",
+      "chromadb": "1.5.9",
+      "pymilvus": "3.0.2",
+      "pinecone": "10.0.0",
+      "google-genai": "2.31.0"
+    }
+  },
+  "dataset": "synthetic n=20000 dim=384 clusters=64 std=0.05 seed=42"
+}

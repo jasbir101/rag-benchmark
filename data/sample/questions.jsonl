@@ -1,0 +1,30 @@
+{"question": "What ratio of browns to greens should a compost pile have?", "answer_doc": "composting.md"}
+{"question": "Why does my compost heap smell like rotten eggs?", "answer_doc": "composting.md"}
+{"question": "Which kitchen leftovers should be kept out of a backyard bin because they attract rats?", "answer_doc": "composting.md"}
+{"question": "How do I know when my starter is ready to bake bread?", "answer_doc": "sourdough.md"}
+{"question": "What is the grey liquid that forms on top of a sourdough culture?", "answer_doc": "sourdough.md"}
+{"question": "How often should a refrigerated starter be fed?", "answer_doc": "sourdough.md"}
+{"question": "What tyre pressure do mountain bikes usually run?", "answer_doc": "bicycle-maintenance.md"}
+{"question": "When is it time to replace a worn bike chain?", "answer_doc": "bicycle-maintenance.md"}
+{"question": "How can I stop my disc brakes from squealing?", "answer_doc": "bicycle-maintenance.md"}
+{"question": "What is the difference between a string inverter and microinverters?", "answer_doc": "solar-panels.md"}
+{"question": "Which direction should rooftop panels face in the northern hemisphere?", "answer_doc": "solar-panels.md"}
+{"question": "How does net metering credit surplus electricity?", "answer_doc": "solar-panels.md"}
+{"question": "Why is the sea star called a keystone species?", "answer_doc": "tide-pools.md"}
+{"question": "Which animals live in the high intertidal zone?", "answer_doc": "tide-pools.md"}
+{"question": "What is the best time of day to go exploring rock pools on the shore?", "answer_doc": "tide-pools.md"}
+{"question": "What does the staging area hold before a commit?", "answer_doc": "git-basics.md"}
+{"question": "When does git perform a fast-forward instead of a merge commit?", "answer_doc": "git-basics.md"}
+{"question": "Why should you avoid rebasing commits that others have pulled?", "answer_doc": "git-basics.md"}
+{"question": "How can I tell if I am overwatering my indoor plants?", "answer_doc": "houseplants.md"}
+{"question": "Why do calathea leaves get crispy brown edges in winter?", "answer_doc": "houseplants.md"}
+{"question": "How much bigger should a new pot be when repotting?", "answer_doc": "houseplants.md"}
+{"question": "What coffee to water ratio is recommended for filter coffee?", "answer_doc": "coffee-brewing.md"}
+{"question": "My coffee tastes sour and thin, what should I change?", "answer_doc": "coffee-brewing.md"}
+{"question": "Why does a French press need a coarse grind?", "answer_doc": "coffee-brewing.md"}
+{"question": "How long should the longest training run be before a marathon?", "answer_doc": "marathon-training.md"}
+{"question": "How quickly can I increase my weekly running distance?", "answer_doc": "marathon-training.md"}
+{"question": "What is tapering and when does it start?", "answer_doc": "marathon-training.md"}
+{"question": "How many litres of water can a roof collect per millimetre of rain?", "answer_doc": "rainwater-harvesting.md"}
+{"question": "What does a first-flush diverter do?", "answer_doc": "rainwater-harvesting.md"}
+{"question": "Is it safe to drink untreated water collected from a roof?", "answer_doc": "rainwater-harvesting.md"}
